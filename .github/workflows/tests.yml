@@ -1,0 +1,21 @@
+name: tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # the release-notes check needs tags and history
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install pytest coverage
+      - name: unit tests
+        run: PYTHONPATH=src python -m pytest tests -q
+      - name: audit this repository
+        run: PYTHONPATH=src python -m receipts.cli --repo . --quiet
