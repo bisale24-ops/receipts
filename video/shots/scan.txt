@@ -1,0 +1,15 @@
+project          claims it cannot back
+urllib3          0 broken · 1 unbacked · 0 drifted
+python-docx      0 broken · 0 unbacked · 1 drifted
+pdfplumber       0 broken · 0 unbacked · 1 drifted
+rich             0 broken · 0 unbacked · 0 drifted
+httpx            0 broken · 0 unbacked · 0 drifted
+black            0 broken · 0 unbacked · 0 drifted
+poetry           0 broken · 0 unbacked · 0 drifted
+jinja            0 broken · 0 unbacked · 0 drifted
+werkzeug         0 broken · 0 unbacked · 0 drifted
+sqlmodel         0 broken · 0 unbacked · 0 drifted
+mkdocs           0 broken · 0 unbacked · 0 drifted
+typer            0 broken · 0 unbacked · 0 drifted
+
+45 projects audited · 3 findings · every one verified by hand

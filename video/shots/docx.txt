@@ -1,0 +1,9 @@
+python-docx
+  [drifted] packaging metadata states two different floors: 3.9 and 3.7
+      the classifiers advertise 3.7, but requires-python is 3.9, so pip refuses to install on the versions the classifiers promise
+      packaging metadata
+
+pdfplumber
+  [drifted] packaging metadata states two different floors: 3.8 and 3.10
+      the classifiers advertise 3.10, but requires-python is 3.8, so pip installs on versions the project no longer says it supports
+      packaging metadata

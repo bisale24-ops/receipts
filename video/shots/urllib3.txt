@@ -1,0 +1,16 @@
+urllib3: 1 claims this repository cannot back
+
+BADGES  1 finding(s)
+  [unbacked] badge: coverage is 100%
+      the number is typed into the badge URL, so nothing produced it and nothing updates it
+      README.md:11
+
+DOCUMENTATION EXAMPLES  0 finding(s)
+  nothing unbacked — 3 examples, 0 checkable references
+
+PYTHON FLOOR  0 finding(s)
+  nothing unbacked — 35 shipped files against a declared floor of 3.10
+
+RELEASE NOTES  not checked — fewer than two tags, so there is no release range to read
+
+0 broken · 1 unbacked · 0 drifted

@@ -1,0 +1,10 @@
+$ ./demo/crash-hunt.sh ~/clones
+clean: 39 repositories × 3 output forms, no stderr, no exit above 1
+
+$ ./check.sh python3.9 python3.14
+=== Python 3.9.6 ===
+36 passed in 0.43s
+0 broken · 0 unbacked · 0 drifted
+=== Python 3.14.7 ===
+36 passed in 0.43s
+0 broken · 0 unbacked · 0 drifted
