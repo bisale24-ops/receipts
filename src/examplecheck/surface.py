@@ -7,6 +7,7 @@ without installing anything and without running a line of someone else's code.
 import ast
 import dataclasses
 import pathlib
+import warnings
 
 SKIP_DIRS = {".git", ".venv", "venv", "node_modules", "build", "dist", "__pycache__", ".tox",
              ".mypy_cache", ".pytest_cache", "site-packages"}
@@ -264,7 +265,10 @@ def read(repo):
         if dotted is None:
             continue
         try:
-            tree = ast.parse(path.read_text(encoding="utf-8", errors="replace"))
+            with warnings.catch_warnings():
+                # reading someone else's source: its lint warnings are not ours to print
+                warnings.simplefilter("ignore")
+                tree = ast.parse(path.read_text(encoding="utf-8", errors="replace"))
         except SyntaxError:
             continue
         modules.add(dotted)

@@ -97,9 +97,20 @@ believing it.
 ## Tests
 
 ```bash
-PYTHONPATH=src python3 -m pytest tests -q   # 19 tests, no network
-./check.sh python3.9 python3.12             # everything CI runs, on both versions
+PYTHONPATH=src python3 -m pytest tests -q   # 36 tests, no network
+./check.sh python3.9 python3.12             # the suite and the tool itself, on both versions
+./demo/crash-hunt.sh /path/to/clones        # every repository, every output form, exit 1 on any stderr
 ```
+
+Seventeen of the tests are adversarial: an empty directory, a repository with no Python in it, a
+`pyproject.toml` that is not valid TOML, bytes that are not UTF-8, a symlink loop, a dangling
+symlink, a README that is one 200,000-character line. Each asserts the same two things — nothing
+on stderr, and an exit code of 0 or 1.
+
+One of them runs the tool in a subprocess on purpose. Written in-process it passed whether or not
+the code under test was correct, because pytest captures warnings before they reach stderr. A test
+that cannot fail is not a test, so it now starts a real process and reads real stderr; reverting
+the fix makes it fail.
 
 ## How it is put together
 
